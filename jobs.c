@@ -13,16 +13,17 @@ void print_jobsQueue(){
 }
 
 
-void iniciarProcesso(int index){
+void iniciarProcesso(int index, int index2){
 
 	pid_t pid;	
 
 	pid = fork();
 
 	if(pid == 0){
-		execlp(fila[index], argumentos[index],(char *)NULL);
+		printf("\n%s, argumentos: %s\n",fila[index],argumentos[index]);
+		char *fakearg = NULL;
+		execlp(fila[index], argumentos[index2],(char *)NULL);
 		kill(pid, SIGSTOP); 
-		
 
 	}else{
 		printf("spid [%d] = %d \n",pidx, spid[pidx]);

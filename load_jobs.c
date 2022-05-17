@@ -40,13 +40,17 @@ void loadJobs(char* file)
 		}else{
 			printf("%s", job);
 			if(job[0] == '.'){
+				/*  era o original*/
 				fila[index] = malloc(((size_t) strlen(job))*sizeof(char));
-				strcpy(fila[index],job);	
+				strcpy(fila[index],job);
+				printf("(%s)\n",fila[index]);	
 				memset(job, 0, 10);			
 				index++;
 			}else if(strcmp(job, "")){
 				argumentos[index2] = malloc(((size_t) strlen(job))*sizeof(char));
 				strcpy(argumentos[index2],job);
+				printf("(%s)",argumentos[index2]);
+
 				memset(job, 0, 10);	
 				progXargs[index-1][index2] = 1;
 				index2++;
