@@ -4,6 +4,7 @@
 
 
 extern char **fila;
+extern char **filArg;
 extern char **argumentos;	
 extern int queueSize;     
 

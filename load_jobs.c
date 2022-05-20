@@ -66,9 +66,12 @@ void loadJobs(char* file)
 
   printf("\n\n\n");	
   
-
+  filArg =(char**)malloc(sizeof(char*) * index);
+  
+  
   for(l=0; l < index; l++){
-
+	filArg[l] = (char*)malloc(sizeof(char)*100);
+	filArg[l][0] = ' ';/*'\0'*/
 	args = 0;
 	
 	for(c=0; c < index2; c++){
@@ -79,8 +82,7 @@ void loadJobs(char* file)
 	for(ind=0; ind < index2; ind++){
 		if(progXargs[l][ind]){
 				strcat(argumentos[ind], " ");
-				strcat(fila[l], " ");
-				strcat(fila[l], argumentos[ind]);
+				strcat(filArg[l], argumentos[ind]);
 		}		
 	}
 

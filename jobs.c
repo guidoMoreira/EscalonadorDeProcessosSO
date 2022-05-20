@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include "jobs.h"
-
+#include <strings.h>
 
 
 void print_jobsQueue(){
@@ -13,16 +13,19 @@ void print_jobsQueue(){
 }
 
 
-void iniciarProcesso(int index, int index2){
+void iniciarProcesso(int index){
 
 	pid_t pid;	
 
 	pid = fork();
 
 	if(pid == 0){
-		printf("\n%s, argumentos: %s\n",fila[index],argumentos[index]);
-		char *fakearg = NULL;
-		execlp(fila[index], argumentos[index2],(char *)NULL);
+		
+		char arg[sizeof(filArg[index])];
+		strcpy(arg,filArg[index]);
+		printf("\n%s, argumentos: %s\n",fila[index],arg);
+
+		execlp(fila[index], arg,(char*)NULL);/*execvp vs execlp*/
 		kill(pid, SIGSTOP); 
 
 	}else{

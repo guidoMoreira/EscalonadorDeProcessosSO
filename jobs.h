@@ -16,6 +16,7 @@
 
 
 char **fila;
+char **filArg;
 char **argumentos;	
 int queueSize;      /*Tamanho da Fila de tarefas*/
 int spid[100];
