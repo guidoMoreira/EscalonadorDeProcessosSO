@@ -1,0 +1,3 @@
+passar primeiro argumento como time para os programas( exemplo: ./teste 10.3)
+usar um dispacher par aprogramas terem diferentes tempos de chegada
+usar função time pra calcular tempos
